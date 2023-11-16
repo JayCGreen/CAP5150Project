@@ -3,13 +3,14 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import MemApp from './MemberPage';
 import Upload from './uploads';
-import App from './MemberPage';
+import App from './App';
+import Transfer from './transfer'
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <MemApp />
+    <App />
   </React.StrictMode>
 );
 
