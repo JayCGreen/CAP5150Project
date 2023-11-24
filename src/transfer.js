@@ -133,6 +133,22 @@ function storeCID() {
         }
     }
 
+    function getMessageEncoding(message) {
+        const enc = new TextEncoder();
+        return enc.encode(message);
+    }
+    
+    function encryptMessage(key, message) {
+        const encoded = getMessageEncoding(message);
+        // iv will be needed for decryption
+        const iv = window.crypto.getRandomValues(new Uint8Array(12));
+        return window.crypto.subtle.encrypt(
+            { name: "AES-GCM", iv: iv },
+            key,
+            encoded,
+        );
+    }
+
     function uploadFile() {
         const fileInput = document.getElementById("fileInput");
         const apiTokenInput = document.getElementById("apiTokenInput");
